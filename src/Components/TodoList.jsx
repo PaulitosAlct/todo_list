@@ -38,6 +38,17 @@ const handleAddTodo = () => {
                     {/* Button to delete the current heading by passing its index */}
                     <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}>Delete Heading</button>
                 </div>
+                <div className="add_list">
+                    {/* Input field for adding a new item under a specific heading */}
+                    <input
+                    type="text"
+                    className="list-input"
+                    placeholder="Add List"
+                    value={listInput[index] || ""} // Use the value from listInputs array based on the current heading index
+                    onChange={(e) => handleListInputChange(index, e.target.value)}/>
+                    {/* Button to add the list item to the corresponding heading */}
+                    <button className="add-list-button" onClick={() => handleAddList(index)}>Add List</button>
+                </div>
             </div>
         ))}
       </div>
