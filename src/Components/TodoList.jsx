@@ -25,6 +25,15 @@ const handleAddList = (index) => {
 const handleListInputChange = (index, value) => {
     setListInputs({ ...listInputs, [index]: value}); // Update the listInputs state for the corresponding index
 };
+// Function to delete todo list
+const handleDeleteTodo = (index) => {
+    // Create a shallow copy of the current todos array
+    const newTodos = [...todos];
+    // Remove the todo at the specified index
+    newTodos.splice(index, 1);
+    // Update the state with the new array (without the deleted todo)
+    setTodos(newTodos);
+};
 
   return (
     <>
@@ -50,7 +59,7 @@ const handleListInputChange = (index, value) => {
                     {/* Display the heading text of the current todo item */}
                     <h3>{todo.heading}</h3> {/* Display the heading here */}
                     {/* Button to delete the current heading by passing its index */}
-                    <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}>Delete Heading</button>
+                    <button className="delete-button-heading" onClick={handleDeleteTodo}>Delete Heading</button>
                 </div>
                 
                 <ul>
